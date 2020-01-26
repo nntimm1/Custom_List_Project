@@ -7,6 +7,7 @@ namespace CustomListTests
     [TestClass]
     public class UnitTest1
     {
+        //---------------------------------------------Add Method Tests------------------------------------------------------------------
         [TestMethod]
         public void Add_CheckThatAddIsPlacingAtIndexOne()
         {
@@ -101,7 +102,72 @@ namespace CustomListTests
             // Act
             customList.Add(3);
             customList.Add(55);
+
+            actual = customList.Capacity;
+
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+            //---------------------------------------------Remove Method Tests------------------------------------------------------------------
+        
+        [TestMethod]
+        public void Remove_CheckThatRemoveIsPlacingAtIndexOneDecreasingCount()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 2;
+            int actual;
+            customList.Add(5);
+            customList.Add(10);
+            customList.Add(15);
+
+            // Act
+            customList.Remove(5);
+            actual = customList.Count;
+
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_CheckThatRemoveIsRemovingTheCorrectIndex_CheckIntAtIndexOneIsCorrect()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 10;
+            int actual;
+            customList.Add(5);
+            customList.Add(10);
+            customList.Add(15);
+
+            // Act
+            customList.Remove(5);
+            actual = customList[0];
             
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_CheckThatCapacityisDecreased_ChangeCapacityFromEightToFour()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 4;
+            int actual;
+
+            customList.Add(59);
+            customList.Add(52);
+            customList.Add(3);
+            customList.Add(52);
+            customList.Add(3);
+            customList.Add(55);
+
+
+            // Act
+            customList.Remove(59);
+            customList.Remove(3);
+
             actual = customList.Capacity;
 
 

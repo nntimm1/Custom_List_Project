@@ -55,22 +55,23 @@ namespace CustomListProject
         {
             if (Count == Capacity)
             {
-                capacity *= 2;
+                capacity *= 2;                            // will double capacity if the count is equal to the capacity
                 T[] tempArray = new T[capacity];
                 for (int i = 0; i < count; i++)
-                {
+                {                                         // will assign items from the original array to the new temp array in the original index
                     tempArray[i] = items[i];
                 }
-                items = new T[capacity];
-                for (int j = 0; j < count; j++)
+                items = new T[capacity];                  // creates a new array with the updated capacity 
+                for (int j = 0; j < count; j++)           
                 {
-                    items[j] = tempArray[j];
+                    items[j] = tempArray[j];              // moves items from temp array to the new array in the original index position
                 }
             }
-            items[count] = itemToAdd;
-            count++;
-            // should add a value to our list (to the end)
-            // increment count
+            items[count] = itemToAdd;                     // should add a value to our array int he last position
+            count++;                                      // increases the count value by one
+
+
+
         }
     }
 }
