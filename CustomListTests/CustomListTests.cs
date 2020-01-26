@@ -8,11 +8,11 @@ namespace CustomListTests
     public class UnitTest1
     {
         [TestMethod]
-        public void Add_CheckThatAddIsPlaceingAtIndexOne()
+        public void Add_CheckThatAddIsPlacingAtIndexOne()
         {
             // Arrange
             CustomList<int> customList = new CustomList<int>();
-            int expected = 1;
+            int expected = 5;
             int actual;
 
             // Act
@@ -28,12 +28,14 @@ namespace CustomListTests
         {
             // Arrange
             CustomList<string> customList = new CustomList<string>();
-            int expected = 1;
+            int expected = 3;
             int actual;
 
             // Act
             customList.Add("flamingo");
-            actual = customList.count;
+            customList.Add("flamingo");
+            customList.Add("flamingo");
+            actual = customList.Count;
 
 
             // Assert
@@ -63,47 +65,49 @@ namespace CustomListTests
         [TestMethod]
         public void Add_AddItemToListWithItemsAlreadyInIt_CheckCountInArray()
         {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 4;
+            int actual;
+
+            customList.Add(59);
+            customList.Add(52);
+
+
+            //Act
+            customList.Add(55);
+            customList.Add(48);
+            actual = customList.Count;
+
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Add_AddItemToListWithFullCapacity_CheckCapacityIncreasedOnceCapacityLimitReached()
+        {
             // Arrange
             CustomList<int> customList = new CustomList<int>();
-            int expected = 6;
+            int expected = 8;
             int actual;
 
             customList.Add(59);
             customList.Add(52);
             customList.Add(3);
-            customList.Add(18);
+            customList.Add(52);
+
+
 
             // Act
+            customList.Add(3);
             customList.Add(55);
-            customList.Add(48);
-            actual = customList.count;
+            
+            actual = customList.Capacity;
 
 
             // Assert
             Assert.AreEqual(expected, actual);
         }
-        //[TestMethod]
-        //public void Add_AddItemToListWithFullCapacity_CheckCapacityIncreasedOnceCapacityLimitReached()
-        //{
-        //    // Arrange
-        //    CustomList<int> customList = new CustomList<int>();
-        //    int expected = 8;
-        //    int actual;
-
-        //    customList.Add(59);
-        //    customList.Add(52);
-        //    customList.Add(3);
-        //    customList.Add(18);
-
-        //    // Act
-        //    customList.Add(55);
-        //    customList.Add(48);
-        //    actual = customList.Capacity;
-
-
-        //    // Assert
-        //    Assert.AreEqual(expected, actual);
-        //}
 
     }
 }
