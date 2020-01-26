@@ -50,7 +50,7 @@ namespace CustomListProject
 
         // --------------------------------------------member methods (CAN DO)-------------------------------------------
 
-
+                                             //-----------Add Method------------
         public void Add(T itemToAdd)
         {
             if (Count == Capacity)
@@ -69,8 +69,14 @@ namespace CustomListProject
             }
             items[count] = itemToAdd;                     // should add a value to our array int he last position
             count++;                                      // increases the count value by one
+        }
 
 
+
+
+                                            //-----------Remove Method------------       
+        public void Remove()
+        {
 
         }
     }

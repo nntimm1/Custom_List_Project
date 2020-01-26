@@ -109,10 +109,10 @@ namespace CustomListTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
-            //---------------------------------------------Remove Method Tests------------------------------------------------------------------
-        
+        //---------------------------------------------Remove Method Tests------------------------------------------------------------------
+
         [TestMethod]
-        public void Remove_CheckThatRemoveIsPlacingAtIndexOneDecreasingCount()
+        public void Remove_CheckCount_ThatRemoveDecreasingCountFromThreeToTwo()
         {
             // Arrange
             CustomList<int> customList = new CustomList<int>();
@@ -131,7 +131,7 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Remove_CheckThatRemoveIsRemovingTheCorrectIndex_CheckIntAtIndexOneIsCorrect()
+        public void Remove_CheckIndexPosition_RemovingTheCorrectItemInArray_CheckIntAtIndexOneIsCorrect()
         {
             // Arrange
             CustomList<int> customList = new CustomList<int>();
@@ -144,12 +144,12 @@ namespace CustomListTests
             // Act
             customList.Remove(5);
             actual = customList[0];
-            
+
             // Assert
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Remove_CheckThatCapacityisDecreased_ChangeCapacityFromEightToFour()
+        public void Remove_CheckCapacity_ChangeCapacityFromEightToFour()
         {
             // Arrange
             CustomList<int> customList = new CustomList<int>();
@@ -167,6 +167,7 @@ namespace CustomListTests
             // Act
             customList.Remove(59);
             customList.Remove(3);
+            customList.Remove(52);
 
             actual = customList.Capacity;
 
@@ -174,6 +175,29 @@ namespace CustomListTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Remove_CheckCountZero_RemoveAllItemsFromListMakingCountZero()
+        {
+            // Arrange
+            CustomList<string> customList = new CustomList<string>();
+            int expected = 0;
+            int actual;
+            customList.Add("flamingo");
+            customList.Add("delta");
+            customList.Add("tango");
+
+            // Act
+            customList.Remove("flamingo");
+            customList.Remove("tango");
+            customList.Remove("delta");
+            actual = customList.Count;
+
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+
 
     }
 }
