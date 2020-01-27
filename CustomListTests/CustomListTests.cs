@@ -149,33 +149,6 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void Remove_CheckCapacity_ChangeCapacityFromEightToFour()
-        {
-            // Arrange
-            CustomList<int> customList = new CustomList<int>();
-            int expected = 4;
-            int actual;
-
-            customList.Add(59);
-            customList.Add(52);
-            customList.Add(3);
-            customList.Add(52);
-            customList.Add(3);
-            customList.Add(55);
-
-
-            // Act
-            customList.Remove(59);
-            customList.Remove(3);
-            customList.Remove(52);
-
-            actual = customList.Capacity;
-
-
-            // Assert
-            Assert.AreEqual(expected, actual);
-        }
-        [TestMethod]
         public void Remove_CheckCountZero_RemoveAllItemsFromListMakingCountZero()
         {
             // Arrange
@@ -196,7 +169,65 @@ namespace CustomListTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void Remove_CheckCount_RemovingIncorrectItemInArray()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 3;
+            int actual;
+            customList.Add(5);
+            customList.Add(10);
+            customList.Add(15);
 
+            // Act
+            customList.Remove(7);
+            actual = customList.Count;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void Remove_CheckIndexLocation1_RemovingIncorrectItemInArray_ValidateIndexesDidNotChange()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 85;
+            int actual;
+            customList.Add(55);
+            customList.Add(85);
+            customList.Add(115);
+            customList.Add(110);
+            customList.Add(95);
+            customList.Add(75);
+
+            // Act
+            customList.Remove(25);
+            actual = customList[1];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        public void Remove_CheckIndexLocation2_RemovingIncorrectItemInArray_ValidateIndexesDidNotChange()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 95;
+            int actual;
+            customList.Add(55);
+            customList.Add(85);
+            customList.Add(115);
+            customList.Add(110);
+            customList.Add(95);
+            customList.Add(75);
+
+            // Act
+            customList.Remove(102);
+            actual = customList[5];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
 
 
     }
