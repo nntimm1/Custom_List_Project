@@ -123,7 +123,7 @@ namespace CustomListTests
             customList.Add(15);
 
             // Act
-            customList.Remove(5);
+            customList.Remove2(5);
             actual = customList.Count;
 
 
@@ -142,7 +142,7 @@ namespace CustomListTests
             customList.Add(15);
 
             // Act
-            customList.Remove(5);
+            customList.Remove2(5);
             actual = customList[0];
 
             // Assert
@@ -160,9 +160,9 @@ namespace CustomListTests
             customList.Add("tango");
 
             // Act
-            customList.Remove("flamingo");
-            customList.Remove("tango");
-            customList.Remove("delta");
+            customList.Remove2("flamingo");
+            customList.Remove2("tango");
+            customList.Remove2("delta");
             actual = customList.Count;
 
 
@@ -181,7 +181,7 @@ namespace CustomListTests
             customList.Add(15);
 
             // Act
-            customList.Remove(7);
+            customList.Remove2(7);
             actual = customList.Count;
 
             // Assert
@@ -202,7 +202,7 @@ namespace CustomListTests
             customList.Add(75);
 
             // Act
-            customList.Remove(25);
+            customList.Remove2(25);
             actual = customList[1];
 
             // Assert
@@ -222,7 +222,7 @@ namespace CustomListTests
             customList.Add(75);
 
             // Act
-            customList.Remove(102);
+            customList.Remove2(102);
             actual = customList[5];
 
             // Assert
