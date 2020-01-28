@@ -264,6 +264,41 @@ namespace CustomListTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void OverloadMinus_SubtractingDuplicateItemsFromTwoLists_CountValidate()
+        {
+            // Arrange
+            CustomList<int> customList1 = new CustomList<int>() { 55, 85, 115, 35, 95 };
+            CustomList<int> customList2 = new CustomList<int>() { 85, 65, 115, 105, 35 };
+
+            int expected = 4;
+            int actual;
+
+
+            // Act
+            CustomList<int> result = customList1 - customList2;
+            actual = result.Count;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void OverloadMinus_CheckIndexmatch_ValidatelocationOfSubtractedIndex()
+        {
+            // Arrange
+            CustomList<int> customList1 = new CustomList<int>() { 55, 85, 115, 35, 95 };
+            CustomList<int> customList2 = new CustomList<int>() { 85, 65, 115, 105, 35 };
+            int expected = 35;
+            int actual;
+
+
+            // Act
+            CustomList<int> result = customList1 - customList2;
+            actual = result[2];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
         //[TestMethod]
         //public object AddLists_AddTheCOntentsOfTwoLists_2Itemsand2Items()
         //{
@@ -277,7 +312,7 @@ namespace CustomListTests
 
 
         //    // Act
-            
+
 
         //    // Assert
         //    Assert.AreEqual(expected, actual);
