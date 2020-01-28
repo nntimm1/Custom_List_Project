@@ -10,15 +10,18 @@ namespace CustomListProject
     {
         static void Main(string[] args)
         {
-            CustomList<int> test = new CustomList<int>();
+            CustomList<int> testList = new CustomList<int>();
 
-            test.Add(1);
-            test.Add(2);
-            test.Add(3);
+            CustomList<int> customList1 = new CustomList<int>() { 55, 85, 115, 35, 95 };
+            CustomList<int> customList2 = new CustomList<int>() { 75, 65, 45, 105, 125 };
 
-            test.Remove2(2);
+            CustomList<int> result = customList1 + customList2;
 
             
+            Console.ReadLine();
+
+
+
         }
       
     }

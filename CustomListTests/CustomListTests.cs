@@ -230,30 +230,57 @@ namespace CustomListTests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void ZipMergeTest_CheckCountIncrease_ValidateCountIncreasesToMaxOfTwoLists()
+        public void OverloadPlus_AddingListTwoToTheEndOfListOne_CountValidate()
         {
             // Arrange
-            CustomList<int> customList1 = new CustomList<int>();
-            CustomList<int> customList2 = new CustomList<int>();
+            CustomList<int> customList1 = new CustomList<int>() { 55, 85, 115, 35, 95 };
+            CustomList<int> customList2 = new CustomList<int>() { 75, 65, 45, 105, 125 };
+            
             int expected = 10;
             int actual;
-            customList1.Add(55);
-            customList1.Add(85);
-            customList1.Add(115);
-            customList1.Add(35);
-            customList1.Add(95);
-            customList2.Add(75);
-            customList2.Add(65);
-            customList2.Add(45);
-            customList2.Add(105);
-            customList2.Add(125);
+
 
             // Act
-
-            actual = customList1.Count;
+            CustomList<int> result = customList1 + customList2;
+            actual = result.Count;
 
             // Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void OverloadPlus_CheckIndexmatch_ValidatelocationOfAddedIndex()
+        {
+            // Arrange
+            CustomList<int> customList1 = new CustomList<int>() {55, 85, 115, 35, 95 };
+            CustomList<int> customList2 = new CustomList<int>() {75, 65, 45, 105, 125 };
+            int expected = 65;
+            int actual;
+
+
+            // Act
+            CustomList<int> result = customList1 + customList2;
+            actual =result[6];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        //[TestMethod]
+        //public object AddLists_AddTheCOntentsOfTwoLists_2Itemsand2Items()
+        //{
+
+        //    // Arrange
+        //    CustomList<string> combinedList = new CustomList<string>();
+        //    CustomList<string> customList1 = new CustomList<string>() {"Star", "Wars" };
+        //    CustomList<string> customList2 = new CustomList<string>() { "Star", "Trek" };
+        //    string expected = "Star Wars Star Trek";
+        //    string actual;
+
+
+        //    // Act
+            
+
+        //    // Assert
+        //    Assert.AreEqual(expected, actual);
+        //}
     }
 }

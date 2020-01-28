@@ -25,6 +25,7 @@ namespace CustomListProject
             }
         }
         private int capacity;
+       
         public int Capacity
         {
             get
@@ -115,30 +116,63 @@ namespace CustomListProject
              items = tempArray;     // creates a new array without itemToRemove 
         }
 
-                                        //----------- To String Override ------------  
+
+                                                             //--------------- Enumerator ---------------- 
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return (IEnumerator)GetEnumerator();
+        }
+
+        private IEnumerator GetEnumerator()
+        {
+            yield return "";
+        }
+
+                                                               //----------- To String Override ------------  
 
         public override string ToString()
         {
             return base.ToString();
         }
+                                                                 //--------------- Merge Lists ---------------- 
 
-                                        //--------------- Enumerator ---------------- 
 
-        public IEnumerator GetEnumerator()
+        public static CustomList<T> operator+ (CustomList<T> customList1, CustomList<T> customList2)
         {
-            for (int i = 0; i < Count; i++)
+            CustomList<T> resultList = new CustomList<T>();
+            for (int i = 0; i < customList1.Count; i++)
             {
-                
-
+                resultList.Add(customList1[i]);
             }
-            yield return "Lists Merged";
+            for (int i = 0; i < customList2.Count; i++)
+            {
+                resultList.Add(customList2[i]);
+            }
+        
+            return resultList;
+              
         }
+        //public static CustomList<T> operator -(CustomList<T> customList1, CustomList<T> customList2)
+        //{
+        //    CustomList<T> resultList = new CustomList<T>();
+        //    for (int i = 0; i < customList1.Count; i++)
+        //    {
+        //        if (customList1[i] == customList2[i])
+        //        {
 
-                                        //--------------- Merge Lists ---------------- 
-        public void Merge()
-        {
+        //        }
+        //        resultList.Add(customList1[i]);
+        //    }
+        //    for (int i = 0; i < customList2.Count; i++)
+        //    {
+        //        resultList.Add(customList2[i]);
+        //    }
 
-        }
+        //    return resultList;
+
+        //}
+
     }
 }
 
@@ -183,3 +217,11 @@ namespace CustomListProject
 //    }
 
 //}
+//int zippedCount = customList1.Count + customList2.Count;
+//T[] tempArray = new T[zippedCount];
+//            for (int i = 0; i<zippedCount; i++)
+//            {
+//                tempArray = customList1[i];
+//                tempArray = customList2[i];
+//                i++;
+//            }
