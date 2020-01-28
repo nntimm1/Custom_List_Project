@@ -208,6 +208,7 @@ namespace CustomListTests
             // Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
         public void Remove_CheckIndexLocation2_RemovingIncorrectItemInArray_ValidateIndexesDidNotChange()
         {
             // Arrange
@@ -223,12 +224,36 @@ namespace CustomListTests
 
             // Act
             customList.Remove2(102);
-            actual = customList[5];
+            actual = customList[4];
 
             // Assert
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void ZipMergeTest_CheckCountIncrease_ValidateCountIncreasesToMaxOfTwoLists()
+        {
+            // Arrange
+            CustomList<int> customList1 = new CustomList<int>();
+            CustomList<int> customList2 = new CustomList<int>();
+            int expected = 10;
+            int actual;
+            customList1.Add(55);
+            customList1.Add(85);
+            customList1.Add(115);
+            customList1.Add(35);
+            customList1.Add(95);
+            customList2.Add(75);
+            customList2.Add(65);
+            customList2.Add(45);
+            customList2.Add(105);
+            customList2.Add(125);
 
+            // Act
 
+            actual = customList1.Count;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
