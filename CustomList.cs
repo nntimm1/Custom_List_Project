@@ -117,7 +117,7 @@ namespace CustomListProject
         }
 
 
-                                                             //--------------- Enumerator ---------------- 
+                                                               //--------------- Enumerator ---------------- 
 
         IEnumerator IEnumerable.GetEnumerator()
         {
@@ -129,7 +129,7 @@ namespace CustomListProject
             yield return "";
         }
 
-                                                               //----------- To String Override ------------  
+                                                                 //----------- To String Override ------------  
 
         public override string ToString()
         {
@@ -153,25 +153,49 @@ namespace CustomListProject
             return resultList;
               
         }
-        //public static CustomList<T> operator -(CustomList<T> customList1, CustomList<T> customList2)
-        //{
-        //    CustomList<T> resultList = new CustomList<T>();
-        //    for (int i = 0; i < customList1.Count; i++)
-        //    {
-        //        if (customList1[i] == customList2[i])
-        //        {
+        public static CustomList<T> operator- (CustomList<T> customList1, CustomList<T> customList2)
+        {
+            
+            
+            CustomList<T> resultList = new CustomList<T>();
+            for (int i = 0; i < customList1.Count; i++)
+            {
+                if (customList1[i].Equals(customList2[i]))
+                {
+                    
+                }
+                else
+                {
+                    resultList.Add(customList1[i]);
+                }
+            }
+            for (int i = 0; i < customList2.Count; i++)
+            {
+                if (customList2[i].Equals(customList1[i]))
+                {
+                    
+                }
+                else
+                {
+                    resultList.Add(customList2[i]);
+                }
+            }
 
-        //        }
-        //        resultList.Add(customList1[i]);
-        //    }
-        //    for (int i = 0; i < customList2.Count; i++)
-        //    {
-        //        resultList.Add(customList2[i]);
-        //    }
+            return resultList;
 
-        //    return resultList;
-
-        //}
+        }
+        public static CustomList<T> Zip(CustomList<T> even, CustomList<T> odd)
+        {
+            CustomList<T> resultList = new CustomList<T>();
+            int index = 0;
+            for (int i = 0; i < odd.Count+even.Count; i++)
+            {
+                resultList.Add(odd[index]);
+                resultList.Add(even[index]);
+                index++;
+            }
+            return resultList;
+        }
 
     }
 }

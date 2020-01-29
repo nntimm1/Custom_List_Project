@@ -12,15 +12,15 @@ namespace CustomListProject
         {
             CustomList<int> testList = new CustomList<int>();
 
-            CustomList<int> customList1 = new CustomList<int>() { 55, 85, 115, 35, 95 };
-            CustomList<int> customList2 = new CustomList<int>() { 75, 65, 45, 105, 125 };
+            CustomList<int> customList1 = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> customList2 = new CustomList<int>() { 2, 4, 6 };
 
-            CustomList<int> result = customList1 + customList2;
+            CustomList<int> result = customList1 - customList2;
 
-            
+            result.Zip(customList1, customList2);
             Console.ReadLine();
 
-
+            
 
         }
       

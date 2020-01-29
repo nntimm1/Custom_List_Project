@@ -288,6 +288,7 @@ namespace CustomListTests
             // Arrange
             CustomList<int> customList1 = new CustomList<int>() { 55, 85, 115, 35, 95 };
             CustomList<int> customList2 = new CustomList<int>() { 85, 65, 115, 105, 35 };
+            CustomList<int> resultsList = new CustomList<int>();
             int expected = 35;
             int actual;
 
@@ -295,6 +296,24 @@ namespace CustomListTests
             // Act
             CustomList<int> result = customList1 - customList2;
             actual = result[2];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ZipTest_ZipTwoLists_CheckCorrectIndex()
+        {
+            // Arrange
+            CustomList<int> customList1 = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> customList2 = new CustomList<int>() { 2, 4, 6 };
+            CustomList<int> resultsList = new CustomList<int>();
+            int expected = 3;
+            int actual;
+
+
+            // Act
+            T[] resultsList.Zip(customList1,customList2;
+            actual = resultsList[2];
 
             // Assert
             Assert.AreEqual(expected, actual);
